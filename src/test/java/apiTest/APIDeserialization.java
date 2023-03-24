@@ -24,8 +24,12 @@ public class APIDeserialization extends JsonPlaceholderBaseUrl {
 
         Map<String, Object> expBodyMap = jsonPlaceholderTestData.requestBodyMethodMap();
 
-        Response response = given().contentType(ContentType.JSON).spec(specJsonPlace).when().body(reqBodyMap).put("{pp1}");
+        Response response = given().contentType(ContentType.JSON)
+                .spec(specJsonPlace).
+                when().body(reqBodyMap).put("{pp1}");
+
         response.prettyPrint();
+
         //gson dependency aracılığı ile json mape dönüştü
         Map<String, Object> respMap = response.as(HashMap.class);
         System.out.println(respMap);
